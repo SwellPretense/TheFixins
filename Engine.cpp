@@ -7,7 +7,7 @@ Engine::Engine(const char* kTitle, int kWidth, int kHeight)
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0) 
 	{ 
 		kWindow = SDL_CreateWindow(kTitle, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-			kWidth, kHeight, SDL_WINDOW_ALLOW_HIGHDPI);
+			kWidth, kHeight, kFlags);
 		kRenderer = SDL_CreateRenderer(kWindow, -1, 0);
 		if (!kWindow || !kRenderer){ kActive = false; }
 		else { kActive = true; }
@@ -39,6 +39,6 @@ void Engine::HandleEvents()
 void Engine::Disengage()
 {
 	// Unload
-	if (kWindow != NULL) { SDL_DestroyWindow(kWindow); }
-	if (kRenderer != NULL) { SDL_DestroyRenderer(kRenderer); }
+	if (kWindow != NULL) { SDL_DestroyWindow(kWindow); kWindow = nullptr; }
+	if (kRenderer != NULL) { SDL_DestroyRenderer(kRenderer); kRenderer = nullptr; }
 }

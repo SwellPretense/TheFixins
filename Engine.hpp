@@ -15,6 +15,7 @@ public:
 	const char* kTitle = "EngineProto";
 	int kWidth = 1280, kHeight = 720;
 	bool kActive = false;
+	SDL_WindowFlags kFlags = SDL_WINDOW_ALLOW_HIGHDPI;
 
 	// SDL
 	SDL_Window* kWindow = nullptr;
