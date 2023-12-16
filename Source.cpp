@@ -7,6 +7,7 @@ int main(int argc, char* argv[])
 	{
 		app->HandleEvents();
 	}
+	app->Disengage();
 	delete app;
 	return 1;
 }
